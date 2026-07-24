@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as Scores26RouteImport } from './routes/scores26'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as CaptainsRouteImport } from './routes/captains'
 import { Route as IndexRouteImport } from './routes/index'
 
+const Scores26Route = Scores26RouteImport.update({
+  id: '/scores26',
+  path: '/scores26',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/captains': typeof CaptainsRoute
   '/register': typeof RegisterRoute
+  '/scores26': typeof Scores26Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/captains': typeof CaptainsRoute
   '/register': typeof RegisterRoute
+  '/scores26': typeof Scores26Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/captains': typeof CaptainsRoute
   '/register': typeof RegisterRoute
+  '/scores26': typeof Scores26Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/captains' | '/register'
+  fullPaths: '/' | '/captains' | '/register' | '/scores26'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/captains' | '/register'
-  id: '__root__' | '/' | '/captains' | '/register'
+  to: '/' | '/captains' | '/register' | '/scores26'
+  id: '__root__' | '/' | '/captains' | '/register' | '/scores26'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CaptainsRoute: typeof CaptainsRoute
   RegisterRoute: typeof RegisterRoute
+  Scores26Route: typeof Scores26Route
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/scores26': {
+      id: '/scores26'
+      path: '/scores26'
+      fullPath: '/scores26'
+      preLoaderRoute: typeof Scores26RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/register': {
       id: '/register'
       path: '/register'
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CaptainsRoute: CaptainsRoute,
   RegisterRoute: RegisterRoute,
+  Scores26Route: Scores26Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

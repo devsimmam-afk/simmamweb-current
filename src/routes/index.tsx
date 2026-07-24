@@ -5,6 +5,7 @@ import { Hero } from "@/components/Hero";
 import { Leaderboard } from "@/components/Leaderboard";
 import { Teams } from "@/components/Teams";
 import { Showcase3D } from "@/components/Showcase3D";
+import { Leaderboard26 } from "@/components/Leaderboard26";
 
 import { PastYears } from "@/components/PastYears";
 import { Footer } from "@/components/Footer";
@@ -49,6 +50,7 @@ function Index() {
       <main className="relative">
         <Particles count={20} className="!fixed inset-0 -z-10" />
         <Hero />
+        <Leaderboard26 />
         <Teams />
         <Showcase3D />
         <Leaderboard />

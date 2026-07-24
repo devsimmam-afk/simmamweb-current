@@ -9,8 +9,8 @@ import { dashboardRedirectHref, eventsRedirectHref } from "@/lib/navRedirects";
 ───────────────────────────────────────────── */
 const leftLinks = [
   { href: "/#home", label: "Home" },
-  { href: dashboardRedirectHref, label: "Dashboard" },
   { href: "/#teams", label: "Teams" },
+  { href: "/#leaderboard26", label: "SIMMAM'26" },
   { href: "/#leaderboard", label: "SIMMAM'25" },
 ];
 
